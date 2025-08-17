@@ -1,0 +1,4 @@
+//<'fortify.pbo' properties via Mikero's dos tools, dll version 9.99>
+prefix=z\ace\addons\fortify;
+//PboType=Arma Addon;
+//</properties>
