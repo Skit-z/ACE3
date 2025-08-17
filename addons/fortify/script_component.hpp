@@ -1,5 +1,4 @@
 #define COMPONENT fortify
-#define COMPONENT_BEAUTIFIED Fortify
 #include "\z\ace\addons\main\script_mod.hpp"
 
 // #define DEBUG_MODE_FULL
@@ -15,9 +14,7 @@
 #endif
 
 #include "\z\ace\addons\main\script_macros.hpp"
-
-
-#include "\a3\ui_f\hpp\defineDIKCodes.inc"
+#include "\a3\editor_f\Data\Scripts\dikCodes.h"
 
 #define PLACE_WAITING -1
 #define PLACE_CANCEL 0

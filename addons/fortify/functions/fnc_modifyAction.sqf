@@ -1,4 +1,4 @@
-#include "..\script_component.hpp"
+#include "script_component.hpp"
 /*
  * Author: PabstMirror
  * Modifies the fortify action, shows current budget.
@@ -20,11 +20,10 @@
 
 params ["", "_player", "", "_actionData"];
 
-private _budget = [side group _player] call FUNC(getBudget);
-private _actionText = if (_budget > 0) then {
-    format ["%1 [$%2]", LLSTRING(fortify), _budget];
+private _actionText = if (ace_trenches_trenchSupplies > 0) then {
+    format ["%1 [%2]", "Fortify", ace_trenches_trenchSupplies];
 } else {
-    LLSTRING(fortify);
+    "Fortify";
 };
 
 _actionData set [1, _actionText];
