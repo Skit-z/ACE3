@@ -5,12 +5,12 @@
  *
  * Arguments:
  * 0: The unit that will be put in an unconscious state <OBJECT>
- * 1: Set unconsciouns <BOOL> (default: true)
- * 2: Minimum unconscious time (set to 0 to ignore) <NUMBER><OPTIONAL> (default: 0)
- * 3: Force wakeup at given time if vitals are stable <BOOL><OPTIONAL> (default: false)
+ * 1: Set unconscious <BOOL> (default: true)
+ * 2: Minimum unconscious time (set to 0 to ignore) <NUMBER> (default: 0)
+ * 3: Force wakeup at given time if vitals are stable <BOOL> (default: false)
  *
  * Return Value:
- * Success? <BOOLEAN>
+ * Success? <BOOL>
  *
  * Example:
  * [bob, true] call ace_medical_fnc_setUnconscious;
@@ -38,7 +38,7 @@ if (!local _unit) exitWith {
 };
 
 if (_knockOut isEqualTo IS_UNCONSCIOUS(_unit)) exitWith {
-    WARNING_2("setUnconscious called with no change [Unit %1] [State [%2]", _unit, _knockOut);
+    WARNING_2("setUnconscious called with no change [Unit %1] [State [%2]",_unit,_knockOut);
     false
 };
 
@@ -55,7 +55,6 @@ if (_knockOut) then {
                 if ((alive _unit) && {_unit call EFUNC(medical_status,hasStableVitals)}) then {
                     TRACE_1("Doing delay wakeup",_unit);
                     [QGVAR(WakeUp), _unit] call CBA_fnc_localEvent;
-                    _unit SetVariable ["ACE_UnconsciousStart", -1];
                 } else {
                     TRACE_1("Skipping delay wakeup",_unit);
                 };
@@ -66,6 +65,7 @@ if (_knockOut) then {
             _unit setVariable [QEGVAR(medical,lastWakeUpCheck), CBA_missionTime + _minWaitingTime - SPONTANEOUS_WAKE_UP_INTERVAL];
         };
     };
+
     [QGVAR(knockOut), _unit] call CBA_fnc_localEvent;
 } else {
     [QGVAR(WakeUp), _unit] call CBA_fnc_localEvent;

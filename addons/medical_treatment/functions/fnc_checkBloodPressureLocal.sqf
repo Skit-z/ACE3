@@ -20,7 +20,7 @@
 params ["_medic", "_patient", "_bodyPart"];
 
 // Exit on custom diagnosis enabled
-if (GVAR(customDiagnose)) exitWith {
+if (ace_medical_status_customDiagnose) exitWith {
     [_medic, _patient, _bodyPart] call FUNC(checkBloodPressureLocalModified);
 };
 

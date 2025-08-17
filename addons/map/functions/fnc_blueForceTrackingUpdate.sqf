@@ -25,44 +25,45 @@
 GVAR(BFT_markers) = [];
 
 if (GVAR(BFT_Enabled) and {(!isNil "ACE_player") and {alive ACE_player}}) then {
-	private _groupsToDrawMarkers = [];
-	private _playerSide = call EFUNC(common,playerSide);
 
-	_groupsToDrawMarkers = allGroups select {side _x == _playerSide};
+    private _groupsToDrawMarkers = [];
+    private _playerSide = call EFUNC(common,playerSide);
 
-	if (GVAR(BFT_HideAiGroups)) then {
-		_groupsToDrawMarkers = _groupsToDrawMarkers select {
-			{
-				_x call EFUNC(common,isPlayer);
-			} count units _x > 0;
-		};
-	};
+    _groupsToDrawMarkers = allGroups select {side _x == _playerSide};
 
-	if (GVAR(BFT_ShowPlayerNames)) then {
-		private _playersToDrawMarkers = allPlayers select {side _x == _playerSide && {!(_x getVariable [QGVAR(hideBlueForceMarker), false])}};
+    if (GVAR(BFT_HideAiGroups)) then {
+        _groupsToDrawMarkers = _groupsToDrawMarkers select {
+            {
+                _x call EFUNC(common,isPlayer);
+            } count units _x > 0;
+        };
+    };
 
-		{
-			private _markerType = [_x] call EFUNC(common,getMarkerType);
-			private _colour = format ["Color%1", side _x];
+    if (GVAR(BFT_ShowPlayerNames)) then {
+        private _playersToDrawMarkers = allPlayers select {side _x == _playerSide && {!(_x getVariable [QGVAR(hideBlueForceMarker), false])}};
 
-			private _marker = createMarkerLocal [format ["ACE_BFT_%1", _forEachIndex], [(getPos _x) select 0, (getPos _x) select 1]];
-			_marker setMarkerTypeLocal _markerType;
-			_marker setMarkerColorLocal _colour;
-			_marker setMarkerTextLocal (name _x);
+        {
+            private _markerType = [_x] call EFUNC(common,getMarkerType);
+            private _colour = format ["Color%1", side _x];
 
-			GVAR(BFT_markers) pushBack _marker;
-		} forEach _playersToDrawMarkers;
+            private _marker = createMarkerLocal [format ["ACE_BFT_player_%1", _forEachIndex], [(getPos _x) select 0, (getPos _x) select 1]];
+            _marker setMarkerTypeLocal _markerType;
+            _marker setMarkerColorLocal _colour;
+            _marker setMarkerTextLocal (name _x);
 
-		_groupsToDrawMarkers = _groupsToDrawMarkers select {
-			{
-				!(_x call EFUNC(common,isPlayer));
-			} count units _x > 0;
-		};
-	};
+            GVAR(BFT_markers) pushBack _marker;
+        } forEach _playersToDrawMarkers;
 
-	_groupsToDrawMarkers = _groupsToDrawMarkers select {!(_x getVariable [QGVAR(hideBlueForceMarker), false])};
+        _groupsToDrawMarkers = _groupsToDrawMarkers select {
+            {
+                !(_x call EFUNC(common,isPlayer));
+            } count units _x > 0;
+        };
+    };
 
-	{
+    _groupsToDrawMarkers = _groupsToDrawMarkers select {!(_x getVariable [QGVAR(hideBlueForceMarker), false])};
+
+    {
 		private "_markerDetail";
 		_markerDetail = switch (groupId _x) do {
 			case "HQ": {["SR_Marker_HQ","SRColorGold",false]};
@@ -175,4 +176,5 @@ if (GVAR(BFT_Enabled) and {(!isNil "ACE_player") and {alive ACE_player}}) then {
 		}forEach _units;	
 	};
 };
+
 // END_COUNTER(blueForceTrackingUpdate);

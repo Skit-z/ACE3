@@ -55,13 +55,7 @@ if (IS_BLEEDING(_target)) then {
     _entries pushBack [localize LSTRING(Status_Nobleeding), _nonissueColor];
 };
 
-// Custom diagnosis feedback
-if (EGVAR(medical_treatment,customDiagnose)) then {
-    if (GET_HEMORRHAGE(_target) > 0) then {
-        _entries pushBack ["Lost Blood",[1, 0, 0, 1]];
-    };
-} else {
-    // Vanilla diagnosis feedback
+if (GVAR(showBloodlossEntry)) then {
     // Give a qualitative description of the blood volume lost
     switch (GET_HEMORRHAGE(_target)) do {
         case 0: {
