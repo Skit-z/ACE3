@@ -50,3 +50,11 @@
     ],
     0
 ] call CBA_fnc_addSetting;
+[
+    QGVAR(customDiagnose),
+    "CHECKBOX",
+    ["Custom Diagnosis", "Custom output on check blood pressure"],
+    [ELSTRING(medical,Category), "Modifications"],
+    true,
+    true
+] call CBA_settings_fnc_init;

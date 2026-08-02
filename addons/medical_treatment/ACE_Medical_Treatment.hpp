@@ -585,7 +585,7 @@ class ADDON {
             hrIncreaseHigh[] = {-10, -35};
             timeInSystem = 1800;
             timeTillMaxEffect = 30;
-            maxDose = 4;
+            maxDose = 5;
             dose = 1;
             incompatibleMedication[] = {};
             viscosityChange = -10;

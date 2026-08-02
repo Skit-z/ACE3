@@ -1,4 +1,4 @@
-#include "..\script_component.hpp"
+#include "script_component.hpp"
 /*
  * Author: Kingsley
  * Gets the longest axis of the bounding box of the given object.
@@ -14,6 +14,7 @@
  *
  * Public: Yes
  */
+
 
 params [["_object", objNull, [objNull]]];
 

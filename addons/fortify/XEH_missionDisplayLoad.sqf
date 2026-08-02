@@ -5,7 +5,7 @@ if (!hasInterface) exitWith {};
 params ["_display"];
 
 _display displayAddEventHandler ["MouseZChanged", {
-    (_this select 1) call FUNC(handleScrollWheel);
+    (_this select 1) call DFUNC(handleScrollWheel);
 }];
 
 _display displayAddEventHandler ["MouseButtonDown", {
