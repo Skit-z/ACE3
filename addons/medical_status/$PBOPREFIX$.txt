@@ -1,6 +1,0 @@
-//<'medical_status.pbo' properties via Mikero's dos tools, dll version 10.03>
-prefix=z\ace\addons\medical_status;
-Mikero=DePbo.dll.9.99;
-version=25033100;
-//PboType=Arma Addon;
-//</properties>
