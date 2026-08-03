@@ -25,7 +25,9 @@ if (_class >= _medicN) exitWith {true};
 if (!GVAR(locationsBoostTraining)) exitWith {false};
 
 if (IN_MED_VEHICLE(_unit) || {IN_MED_FACILITY(_unit)}) then {
-    _class = _class + 1; // Boost medical training by one: untrained becomes medic, medic becomes doctor
+    if ([_unit] call EFUNC(medical_treatment,isMedic)) then {
+        _class = _class + 1; // Boost medical training by one: medic becomes doctor
+    };
 };
 
 _class >= _medicN

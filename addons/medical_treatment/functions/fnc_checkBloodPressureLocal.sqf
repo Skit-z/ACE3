@@ -21,6 +21,11 @@ params ["_medic", "_patient", "_bodyPart"];
 
 private _bloodPressure = [0, 0];
 
+// Exit on custom diagnosis enabled
+if (ace_medical_status_customDiagnose) exitWith {
+    [_medic, _patient, _bodyPart] call FUNC(checkBloodPressureLocalModified);
+};
+
 if (alive _patient && {!([_patient, _bodyPart] call FUNC(hasTourniquetAppliedTo))}) then {
     _bloodPressure = GET_BLOOD_PRESSURE(_patient);
 };
