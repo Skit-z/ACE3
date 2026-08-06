@@ -1,6 +1,6 @@
 // ACE - Common
 // #define ENABLE_PERFORMANCE_COUNTERS
-#define DEBUG_MODE_FULL
+// #define DEBUG_MODE_FULL
 #include "script_component.hpp"
 
 //////////////////////////////////////////////////

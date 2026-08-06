@@ -49,11 +49,11 @@ if (_treatmentTime == 0) exitWith {false};
 
 // Adjust treatment time in medical area
 if (IN_MED_VEHICLE(_medic) || {IN_MED_FACILITY(_medic)}) then {
-    private _boostFactor = 0.75;
+    private _boostFactor = 0.9;
     private _min = 2;
     
     if([_medic, 2] call  FUNC(isMedic)) then {
-        _boostFactor = 0.50;
+        _boostFactor = 0.75;
         _min = 1.5;
     };
     

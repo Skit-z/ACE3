@@ -25,7 +25,7 @@ ace_trenches_trenchSupplies = 0;
 [
     QGVAR(fortificationSupplyGain),
     "SLIDER",
-    "Return of Fortication Supply Box",
+    "Supply Gain from Fortication Supply Box",
     "7R Fortfications",
     [50, 500, 100, 0],
 	true
@@ -33,7 +33,7 @@ ace_trenches_trenchSupplies = 0;
 [
     QGVAR(rallyTimer),
     "SLIDER",
-    "Rally Point Timer",
+    "Rallypoint Lifetime",
     "7R Fortfications",
     [0, 900, 300, 0],
 	true
@@ -41,7 +41,7 @@ ace_trenches_trenchSupplies = 0;
 [
     QGVAR(rallyCooldown),
     "SLIDER",
-    "Rally Point Cooldown",
+    "Rallypoint Cooldown",
     "7R Fortfications",
     [0, 900, 120, 0],
 	true
@@ -49,7 +49,7 @@ ace_trenches_trenchSupplies = 0;
 [
     QGVAR(rallyDistance),
     "SLIDER",
-    "Rally Point Enemy Min Distance",
+    "Rallypoint Enemy Min Distance",
     "7R Fortfications",
     [0, 100, 25, 0],
 	true
@@ -57,7 +57,7 @@ ace_trenches_trenchSupplies = 0;
 [
     QGVAR(rallyCosts),
     "SLIDER",
-    "Rally Point Costs",
+    "Rallypoint Costs",
     "7R Fortfications",
     [0, 500, 50, 0],
 	true
@@ -65,9 +65,17 @@ ace_trenches_trenchSupplies = 0;
 [
     QGVAR(blockDistance),
     "SLIDER",
-    "Spawn Point Enemy Block Distance",
+    "Rally/FOB Point Enemy Block Distance",
     "7R Fortfications",
     [0, 500, 50, 0],
+	true
+] call CBA_fnc_addSetting;
+[
+    QGVAR(minRallyDistance),
+    "SLIDER",
+    "Minimum RP Creation Distance from PLayer",
+    "7R Fortfications",
+    [0, 1500, 750, 0],
 	true
 ] call CBA_fnc_addSetting;
 

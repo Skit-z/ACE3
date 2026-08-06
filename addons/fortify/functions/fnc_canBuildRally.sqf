@@ -1,7 +1,7 @@
 #include "script_component.hpp"
 /*
  * Author: Kingsley
- * Checks whether the given player can build a rally point.
+ * Checks whether the given player can build a Rallypoint.
  *
  * Arguments:
  * 0: Player <OBJECT>
