@@ -21,6 +21,12 @@ params ["_unit", ["_medicN", 1]];
 
 private _class = _unit getVariable [QEGVAR(medical,medicClass), parseNumber (_unit getUnitTrait "medic")];
 
+if (IN_MED_VEHICLE(_unit) || {IN_MED_FACILITY(_unit)}) then {
+    if (_class >= 1) then {
+        _class = _class + 1; // Boost medical training by one: medic becomes doctor
+    };
+};
+
 if (_class >= _medicN) exitWith {true};
 if (!GVAR(locationsBoostTraining)) exitWith {false};
 
