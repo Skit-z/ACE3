@@ -50,7 +50,7 @@ if ((count _test) > 0) then {
 
 if (_attackProfile == QGVAR(overflyTopAttack)) then {
     private _denominmator = 1 + exp (1.0 - 3.0 * _flightTime);
-    [0, 0, 3.5 / _denominmator]
+    [0, 0, 1 / _denominmator]
 } else {
     [0, 1, 0]
 }

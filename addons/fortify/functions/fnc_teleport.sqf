@@ -12,7 +12,7 @@
  * Children actions <ARRAY>
  *
  * Example:
- * [target, player, [params]] call acex_fority_fnc_teleport;
+ * [target, player, [params]] call ace_fortify_fnc_teleport;
  *
  * Public: No
  */
@@ -40,11 +40,11 @@ private _actions = [];
     };
 } forEach  ace_fobs;
 
-// Children Action Loop - Rally Points
+// Children Action Loop - Rallypoints
 {
     private _friendlies = _x nearEntities [["CAManBase","Car","Tank"], 25];
     private _enemies = _x nearEntities [["CAManBase","Car","Tank"], ace_fortify_blockDistance];
-    if (({!([side _x, playerSide] call BIS_fnc_sideIsFriendly)} count _enemies < ({([side _x, playerSide] call BIS_fnc_sideIsFriendly)} count _enemies) + 1) && ({([side _x, playerSide] call BIS_fnc_sideIsFriendly)} count _friendlies) > 0) then {
+    if (({!([side _x, playerSide] call BIS_fnc_sideIsFriendly)} count _enemies < ({([side _x, playerSide] call BIS_fnc_sideIsFriendly)} count _enemies) + 1)) then {
         _code = [
                     format ["%1", _x],
                     format ["RP %1", (mapGridPosition (getPos _x))],

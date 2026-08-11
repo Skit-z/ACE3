@@ -17,7 +17,7 @@
 
 params ["_vehicle"];
 
-if (_vehicle getVariable ["ace_fortify_CTIME",0] > 0 && local _vehicle) then {
+if (_vehicle getVariable ["ace_fortify_CTIME",0] > 0) then {
 	// Add to Rally array
 	ace_rally pushBackUnique _vehicle;
 	publicVariable "ace_rally";
@@ -26,4 +26,5 @@ if (_vehicle getVariable ["ace_fortify_CTIME",0] > 0 && local _vehicle) then {
 	private _marker = createMarker [str(_vehicle),_vehicle];
 	_marker setMarkerType "m_rally";
 	_marker setMarkerColor "colorBLUFOR";
+	_marker setMarkerText (format ["%1",mapGridPosition _vehicle]);
 };

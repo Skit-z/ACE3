@@ -27,4 +27,5 @@ if (_vehicle getVariable ["ace_fortify_CTIME",0] > 0) then {
 	private _marker = createMarker [_name,_vehicle];
 	_marker setMarkerType "m_dz";
 	_marker setMarkerColor "colorBLUFOR";
+	_marker setMarkerText (format ["%1",mapGridPosition _vehicle]);
 };

@@ -335,7 +335,7 @@ class CfgVehicles
 	};
 	class Misc_Backpackheap;
 	class ACE_RallyPoint: Misc_Backpackheap {
-		displayName="Rally Point";
+		displayName="Rallypoint";
 		scopeCurator=2;
 		editorCategory="SR_Objects_Cat";
 		editorSubcategory="EdSubcat_SR_Construction";
@@ -400,17 +400,17 @@ class CfgVehicles
 				condition = "([_player,-1] call ace_fortify_fnc_canFortify || [_player,0,2,'','weapons_f_vietnam'] call ace_fortify_fnc_canFortify || [_player] call ace_fortify_fnc_canBuildRally) && canStand _player";
 				statement = "[] spawn ace_fortify_fnc_resourceInfo";
 				modifierFunction = "call ace_fortify_fnc_modifyAction";
-				exceptions[] = {"isNotSwimming"};
+				exceptions[] = {"isNotSwimming","notOnMap"};
 				icon = "\a3\ui_f\data\igui\cfg\simpletasks\types\use_ca.paa";
 				showDisabled = 0;
-				// Rally point
+				// Rallypoint
 				class ace_rally
 				{
-					displayName="Deploy Rally Point [-50]";
+					displayName="Deploy Rallypoint [-50]";
 					condition="[_player] call ace_fortify_fnc_canBuildRally";
-					statement="[_player] call ace_fortify_fnc_buildRally";
+					statement="[_player] spawn ace_fortify_fnc_getRallyPos";
 					icon ="\a3\ui_f\data\igui\cfg\simpletasks\types\meet_ca.paa";
-					exceptions[]={};
+					exceptions[]={"notOnMap"};
 					showDisabled=0;
 					priority=1;
 				};
