@@ -45,6 +45,7 @@ if (!GVAR(advancedMedication)) exitWith {
         };
     };
 };
+[_patient,_classname] call FUNC(medicationOverdose);
 TRACE_1("Running treatmentMedicationLocal with Advanced configuration for",_patient);
 
 
