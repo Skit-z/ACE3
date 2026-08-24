@@ -17,7 +17,7 @@
 
 params ["_vehicle"];
 
-if (_vehicle getVariable ["ace_fortify_CTIME",0] > 0) then {
+if ((_vehicle getVariable ["ace_fortify_CTIME",0] > 0) && (local _vehicle)) then {
     // Remove from Array
     private _index = ace_fobs find _vehicle;
     if (_index >= 0) then {
@@ -26,5 +26,5 @@ if (_vehicle getVariable ["ace_fortify_CTIME",0] > 0) then {
     };
 
     // Remove Marker
-    deleteMarker str(_vehicle);
+    [str(_vehicle)] remoteExec ["deleteMarker", 0];
 };

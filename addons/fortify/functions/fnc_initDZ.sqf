@@ -17,7 +17,7 @@
 
 params ["_vehicle"];
 
-if (_vehicle getVariable ["ace_fortify_CTIME",0] > 0) then {
+if ((_vehicle getVariable ["ace_fortify_CTIME",0] > 0) && (local _vehicle)) then {
 	// Add to FOB array
 	ace_dropzones pushBackUnique _vehicle;
 	publicVariable "ace_dropzones";
