@@ -479,7 +479,7 @@ class CfgVehicles
 				class ace_cover_walls
 				{
 					displayName="Cover / Walls";
-					condition="[_player,0,2,'','weapons_f_vietnam'] call ace_fortify_fnc_canFortify";
+					condition="[_player,0,2] call ace_fortify_fnc_canFortify";
 					statement="[] spawn ace_fortify_fnc_resourceInfo";
 					exceptions[]={};
 					icon = "a3\ui_f\data\IGUI\Cfg\simpleTasks\types\defend_ca.paa";
@@ -554,7 +554,7 @@ class CfgVehicles
 				class ace_fortification_infrastructure
 				{
 					displayName="Infrastructure";
-					condition="[_player,0,2,'','weapons_f_vietnam'] call ace_fortify_fnc_canFortify";
+					condition="[_player,0,2] call ace_fortify_fnc_canFortify";
 					statement="[] spawn ace_fortify_fnc_resourceInfo";
 					exceptions[]={};
 					icon = "a3\ui_f\data\IGUI\Cfg\simpleTasks\types\container_ca.paa";
