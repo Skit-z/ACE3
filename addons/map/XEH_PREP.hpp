@@ -20,4 +20,8 @@ PREP(isFlashlight);
 PREP(isPlatoon);
 PREP(isSergeant);
 PREP(isPlatoonMedic);
+PREP(hasGPS);
+PREP(markBFTPosition);
+PREP(createManualBFTMarker);
+PREP(formatTimestamp);
 

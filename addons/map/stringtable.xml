@@ -271,6 +271,40 @@
             <Hungarian>Itt található az a játékos nevét</Hungarian>
             <Ukrainian>Показати імена гравців</Ukrainian>
         </Key>
+        <Key ID="STR_ACE_Map_BFT_RequireGPS_DisplayName">
+            <English>Require GPS</English>
+            <Czech>Vyžadovat GPS</Czech>
+            <French>Exiger le GPS</French>
+            <Spanish>Requerir GPS</Spanish>
+            <Italian>Richiedi GPS</Italian>
+            <Polish>Wymagaj GPS</Polish>
+            <Portuguese>Exigir GPS</Portuguese>
+            <Russian>Требовать GPS</Russian>
+            <German>GPS erforderlich</German>
+            <Korean>GPS 필요</Korean>
+            <Japanese>GPSを要求</Japanese>
+            <Chinese>需要GPS</Chinese>
+            <Chinesesimp>需要GPS</Chinesesimp>
+            <Hungarian>GPS szükséges</Hungarian>
+            <Ukrainian>Вимагати GPS</Ukrainian>
+        </Key>
+        <Key ID="STR_ACE_Map_BFT_RequireGPS_Description">
+            <English>Require GPS for BFT. Default: Disabled</English>
+            <Czech>Vyžadovat GPS pro BFT. Výchozí: Zakázáno</Czech>
+            <French>Exiger le GPS pour le BFT. Par défaut : Désactivé</French>
+            <Spanish>Requerir GPS para BFT. Predeterminado: Desactivado</Spanish>
+            <Italian>Richiedi GPS per BFT. Predefinito: Disabilitato</Italian>
+            <Polish>Wymagaj GPS dla BFT. Domyślnie: Wyłączone</Polish>
+            <Portuguese>Exigir GPS para BFT. Padrão: Desativado </Portuguese>
+            <Russian>Требовать GPS для BFT. По умолчанию: Отключено</Russian>
+            <German>GPS für BFT erforderlich. Standard: Deaktiviert</German>
+            <Korean>BFT에 GPS 필요. 기본값: 비활성화</Korean>
+            <Japanese>BFTにGPSを要求。デフォルト: 無効</Japanese>
+            <Chinese>BFT需要GPS。默认: 禁用</Chinese>
+            <Chinesesimp>BFT需要GPS。默认: 禁用</Chinesesimp>
+            <Hungarian>GPS szükséges a BFT-hez. Alapértelmezett: Kikapcsolva</Hungarian>
+            <Ukrainian>Вимагати GPS для BFT. За замовчуванням: Вимкнено</Ukrainian>
+        </Key>
         <Key ID="STR_ACE_Map_DefaultChannel_Description">
             <English>Change the starting marker channel at mission start</English>
             <Czech>Nastavit kanál po startu mise</Czech>

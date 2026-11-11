@@ -37,6 +37,30 @@ class CfgVehicles {
                     //icon = QPATHTOF(UI\FTL_Demote.paa);
                 };
 	    	};
+            class ACE_markGroupPosition {
+                displayName = "Update Group Position";
+                condition = QUOTE( \
+                    GVAR(BFT_RequireGPS) && \
+                    ({[_x] call FUNC(hasGPS)} count (units group _player)) == 0 && \
+                    (leader group _player == _player) \
+                );
+                exceptions[] = {"isNotDragging", "notOnMap", "isNotInside", "isNotSitting"};
+                statement =  "[_player] call ace_map_fnc_markBFTPosition";
+                showDisabled = 1;
+                icon = "a3\ui_f\data\IGUI\Cfg\simpleTasks\types\map_ca.paa";
+            };
+            class ACE_markFireteamPosition {
+                displayName = "Update Fireteam Position";
+                condition = QUOTE( \
+                    GVAR(BFT_RequireGPS) && \
+                    ({[_x] call FUNC(hasGPS)} count (units group _player)) == 0 && \
+                    {(_player getVariable [ARR_2('ACE_FTL','')]) in [ARR_4('RED','BLUE','YELLOW','GREEN')]} \
+                );
+                exceptions[] = {"isNotDragging", "notOnMap", "isNotInside", "isNotSitting"};
+                statement =  "[_player,true] call ace_map_fnc_markBFTPosition";
+                showDisabled = 1;
+                icon = "a3\ui_f\data\IGUI\Cfg\simpleTasks\types\map_ca.paa";
+            };
         };
     };
 

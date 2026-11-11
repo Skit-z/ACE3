@@ -39,8 +39,26 @@ if (GVAR(BFT_Enabled) and {(!isNil "ACE_player") and {alive ACE_player}}) then {
         };
     };
 
+	if (GVAR(BFT_RequireGPS)) then {
+		_groupsToDrawMarkers = _groupsToDrawMarkers select {
+            {
+                _x call FUNC(hasGPS);
+            } count units _x > 0;
+        };
+	};
+
+	{
+		{
+			deleteMarkerLocal _x;
+		} forEach (_x getVariable ["ACE_GroupMarker", []]);
+	} forEach _groupsToDrawMarkers;
+
     if (GVAR(BFT_ShowPlayerNames)) then {
         private _playersToDrawMarkers = allPlayers select {side _x == _playerSide && {!(_x getVariable [QGVAR(hideBlueForceMarker), false])}};
+
+		if (GVAR(BFT_RequireGPS)) then {
+			_playersToDrawMarkers = _playersToDrawMarkers select {_x call FUNC(hasGPS);};
+		};
 
         {
             private _markerType = [_x] call EFUNC(common,getMarkerType);
@@ -156,8 +174,18 @@ if (GVAR(BFT_Enabled) and {(!isNil "ACE_player") and {alive ACE_player}}) then {
 	
 	// Check if more than 3 per Squad
 	_units = units group ACE_player;
+
 	if (count _units > 3) then {
 		{
+
+			// Check for GPS requirement
+			if (GVAR(BFT_RequireGPS) && !([_x] call FUNC(hasGPS))) exitWith {};
+			if (!(GVAR(BFT_RequireGPS)) || (GVAR(BFT_RequireGPS) && ([_x] call FUNC(hasGPS)))) then {
+				{
+					deleteMarkerLocal _x;
+				} forEach (_x getVariable ["ACE_FireTeamMarker", []]);
+			};
+
 			// Check if FTL and select Marker Details
 			_markerDetail = [];
 			switch (_x getVariable ["ACE_FTL",""]) do {
@@ -178,3 +206,4 @@ if (GVAR(BFT_Enabled) and {(!isNil "ACE_player") and {alive ACE_player}}) then {
 };
 
 // END_COUNTER(blueForceTrackingUpdate);
+true;

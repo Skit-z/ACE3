@@ -102,3 +102,12 @@
     false,
     true
 ] call CBA_fnc_addSetting;
+
+[
+    QGVAR(BFT_RequireGPS),
+    "CHECKBOX",
+    [localize LSTRING(BFT_RequireGPS_DisplayName), localize LSTRING(BFT_RequireGPS_Description)],
+    [format ["ACE %1", localize LSTRING(Module_DisplayName)], localize LSTRING(BFT_Module_DisplayName)],
+    false,
+    true
+] call CBA_fnc_addSetting;
